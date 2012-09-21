@@ -145,7 +145,7 @@
 		loadCss: function(){
 			if(jQuery('head link#responsive_css') != null){
 				jQuery('<link>',{
-					href: 'http://decacandle.com/resizer/resizer.css',
+					href: 'http://codebomber.com/jquery/resizer/resizer.min.css',
 					rel: 'stylesheet',
 					id: 'responsive_css'
 				}).appendTo('head');
