@@ -24,7 +24,7 @@
 			Resizer.dimensions.height = Resizer.$target.height();
 			Resizer.dimensions.width = Resizer.$target.width();
 			Resizer.$container = jQuery('<div id="responsive_resize_container"></div>').appendTo('body');
-			jQuery('<div class="resize_inner"><a class="resizer_bigger" href="#">+</a><a class="resizer_smaller" href="#">-</a><a class="resize_drop_selector" href="#"><span class="resizer_active_dimension">Mobile <span class="resizer_dimension">(320x480)</span></span></a><ul class="resize_dropdown"></ul><a class="toggle_orientation" href="#">Toggle Orientation</a><a class="reload" href="#">Reload</a><a class="reset" href="#">Reset</a></div>').appendTo(Resizer.$container);
+			jQuery('<div class="resize_inner"><a class="resizer_bigger" href="#">+</a><a class="resizer_smaller" href="#">-</a><a class="resize_drop_selector" href="#"><span class="resizer_active_dimension">Mobile <span class="resizer_dimension">(320x480)</span></span></a><ul class="resize_dropdown"></ul><a class="toggle_orientation" href="#">Toggle Orientation</a><a class="reload" href="#">Reload</a><a class="reset" href="#">Reset</a><a class="close" href="#">Close</a></div>').appendTo(Resizer.$container);
 			Resizer.$container_dropdown = jQuery('ul.resize_dropdown', Resizer.$container);
 			jQuery.each(Resizer.sizes, function(index, value){
 				jQuery('<li data-dimension="'+ index +'" data-description="'+ value.description +'" data-height="'+ value.height +'" data-width="'+ value.width +'"><a href="#">'+ value.description +'</a></li>').appendTo(Resizer.$container_dropdown);
@@ -70,6 +70,12 @@
 				Resizer.$container_dropdown.hide();
 				Resizer.current_dimension = $data.dimension;
 				Resizer.resize($data.width, $data.height);
+				e.preventDefault();
+			});
+			
+			jQuery('a.close', Resizer.$container).click(function(e){
+				Resizer.reset();
+				parent.location.reload(1);
 				e.preventDefault();
 			});
 		},
