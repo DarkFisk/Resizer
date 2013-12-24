@@ -94,7 +94,7 @@
 				class: 'resizer_active',
 				src: window.location + '?123',
 				frameborder: '0',
-				sandbox: 'allow-same-origin allow-form'
+				sandbox: 'allow-same-origin allow-forms'
 
 			}).appendTo($wrapper).animate({'width': next_width, 'height': next_height}, {easing: 'linear', duration: 200, queue: false}).addClass('resizer_active')
 			.wrap('<div id="resize_wrapper_inner"/>')
